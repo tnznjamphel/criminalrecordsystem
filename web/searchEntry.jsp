@@ -12,13 +12,11 @@
         <title>JSP Page</title>
     </head>
     <body>
-        <% 
-            String sword=request.getParameter("search");
-        %>
+        
         
        <form method='post' action='http://localhost:45603/criminalrecordsystem/searchLogic'>
        
-       <input type='text' value="<%= sword %>" name='keyword' >the keyword to be searched
+       <input type='text' name='keyword' >the keyword to be searched
        <input type='radio' name='type' value='1'>Name
        <input type='radio' name='type' value='2'>Age
        <input type='radio' name='type' value='3'>Crime type

@@ -15,53 +15,41 @@ import java.sql.*;
 import java.util.logging.Level;
 import java.util.logging.Logger;
 
-
 /**
  *
  * @author tenzinjamphel
  */
-@WebServlet(urlPatterns = {"/searchLogic"})
-public class searchLogic extends HttpServlet {
+@WebServlet(urlPatterns = {"/showCP"})
+public class showCP extends HttpServlet {
+
+   
     @Override
-    protected void doPost(HttpServletRequest req,HttpServletResponse resp) throws IOException{
-         String searchKey= req.getParameter("keyword");
-         String type=req.getParameter("type");
-         int ch = Integer.parseInt(type);
-         
-         
-         PrintWriter pw= resp.getWriter();
-         
-         Connection conn;
-         Statement stmt;
-         String query="select * from CPrisoners where ";
-          try{
-            Class.forName("com.mysql.jdbc.Driver");
+    protected void service(HttpServletRequest req, HttpServletResponse resp)
+            throws ServletException, IOException {
+        resp.setContentType("text/html;charset=UTF-8");
+        {
+            PrintWriter pw = resp.getWriter();
+            Connection conn;
+            Statement stmt;
+            ResultSet struct;
+            ResultSet rs;
+            try {
+                Class.forName("com.mysql.jdbc.Driver");
+                
+                conn=DriverManager.getConnection("jdbc:mysql://localhost:3306/crecord","root","");
+                stmt=conn.createStatement();
+                
+                
             
-            conn=DriverManager.getConnection("jdbc:mysql://localhost:3306/crecord","root","");
-            stmt=conn.createStatement();
-            switch(ch){
-                case 1:
-                    query+="name='"+searchKey+"'";
-                    
-                    break;
-                case 2:
-                    query+="age='"+searchKey+"'";
-                    break;
-                case 3:
-                    query+="crimetype='"+searchKey+"'";
-                    break;
-                    
-            }
-            ResultSet struct= stmt.executeQuery("desc CPrisoners");
+            struct= stmt.executeQuery("desc CPrisoners");
             pw.println("<html>");
             pw.println("<head>");
             pw.println("<body>");
-            pw.println(searchKey);
-            pw.println(type);
+           
             pw.println("<br>");
-            pw.println(query);
+           
             pw.println("<center>");
-            pw.println("<h1>Table</h1>");
+            pw.println("<h1>List of Prisoners</h1>");
             pw.println("<table border='2'>");
             pw.println("<tr>");
             while(struct.next()){
@@ -72,7 +60,7 @@ public class searchLogic extends HttpServlet {
             pw.println("</tr>");
             int i;
             stmt=conn.createStatement();
-            ResultSet rs=stmt.executeQuery(query);
+            rs=stmt.executeQuery("select * from CPrisoners");
             while(rs.next()){
                 struct.first();
                 i=1;
@@ -89,15 +77,20 @@ public class searchLogic extends HttpServlet {
                 pw.println("</tr>");
              
             }
+            
             pw.println("</table>");
-            pw.println("<br><a href='index.jsp'>Back to Menu</a>");
+            pw.println("</center>");
+            
+            
+            pw.println("<body>");
             pw.println("</body>");
             pw.println("</html>");
-         
-         } catch (ClassNotFoundException | SQLException ex) {
-            Logger.getLogger(searchLogic.class.getName()).log(Level.SEVERE, null, ex);
+            
+            } catch (ClassNotFoundException | SQLException ex) {
+                Logger.getLogger(showCP.class.getName()).log(Level.SEVERE, null, ex);
+            }
+            
+            
         }
     }
-    
-
 }

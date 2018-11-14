@@ -16,15 +16,14 @@
         <h1>Hello World!</h1>
      <center><div style="width: 300px;border:1px solid black">
         <h1>MENU</h1>
-        <form action='http://localhost:45603/criminalrecordsystem/searchEntry.jsp' method='get'>
-        <input type="text" name="search">1. Search entry
-        </form>
+        <a href='http://localhost:45603/criminalrecordsystem/searchEntry.jsp'>1. Search entry</a>
+        
         <br>
         <br>
         <a href="showStructdata.html">2. Show the released prisoners</a>
         <br>
         <br>
-        <a href="insertData.html">3. Show the list of current active prisoners</a>
+        <a href="http://localhost:45603/criminalrecordsystem/showCP">3. Show the list of current active prisoners</a>
         <br>
         <br>
         
