@@ -10,11 +10,32 @@
     <head>
         <meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
         <title>JSP Page</title>
+        <style>
+            .main{
+                width:500px;
+                height:500px;
+                -webkit-box-shadow: -1px 4px 8px 3px rgba(0,0,0,0.75);
+                -moz-box-shadow: -1px 4px 8px 3px rgba(0,0,0,0.75);
+                box-shadow: -1px 4px 8px 3px rgba(0,0,0,0.75);
+                border-radius: 28px 28px 28px 28px;
+                -moz-border-radius: 28px 28px 28px 28px;
+                -webkit-border-radius: 28px 28px 28px 28px;
+                border: 0px solid #000000;
+                
+            }
+            .header{
+                height:300px;
+            }  
+            img{
+                 height:310px;
+            }
+            </style>
     </head>
     <body>
-        
-        <h1>Hello World!</h1>
-     <center><div style="width: 300px;border:1px solid black">
+     <center>
+         <div class="header"><img src="criminal.png">
+         </div>   
+         <div class="main">
         <h1>MENU</h1>
         <a href='http://localhost:45603/criminalrecordsystem/searchEntry.jsp'>1. Search entry</a>
         
