@@ -85,7 +85,8 @@ public class showCP extends HttpServlet {
             pw.println("<body>");
             pw.println("</body>");
             pw.println("</html>");
-            
+            conn.close();
+            pw.close();
             } catch (ClassNotFoundException | SQLException ex) {
                 Logger.getLogger(showCP.class.getName()).log(Level.SEVERE, null, ex);
             }

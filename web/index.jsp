@@ -20,7 +20,7 @@
         
         <br>
         <br>
-        <a href="showStructdata.html">2. Show the released prisoners</a>
+        <a href="http://localhost:45603/criminalrecordsystem/getData">2. insert into prisoners database</a>
         <br>
         <br>
         <a href="http://localhost:45603/criminalrecordsystem/showCP">3. Show the list of current active prisoners</a>

@@ -93,6 +93,8 @@ public class searchLogic extends HttpServlet {
             pw.println("<br><a href='index.jsp'>Back to Menu</a>");
             pw.println("</body>");
             pw.println("</html>");
+            conn.close();
+            pw.close();
          
          } catch (ClassNotFoundException | SQLException ex) {
             Logger.getLogger(searchLogic.class.getName()).log(Level.SEVERE, null, ex);
